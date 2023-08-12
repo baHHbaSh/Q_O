@@ -1,6 +1,7 @@
 from random import randint
 from fuzzywuzzy import fuzz
 import os
+from functools import cache
 def getcwd():
 	dir = list(__file__)
 	Backslash = list(dir)[2]
@@ -12,6 +13,7 @@ def getcwd():
 	return str(result)
 def LaunchExe(path):
 	os.startfile(path)
+@cache
 def ratio(s1: str, s2:str, koff:int = 80):
 	s1 = s1.lower()
 	s2 = s2.lower()

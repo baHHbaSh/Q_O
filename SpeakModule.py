@@ -6,6 +6,7 @@ import os
 import sys
 import datetime
 import webbrowser
+import time
 from tts import tts as TTS, дозапись
 import pyjokes
 ussr_gimn = """
@@ -20,7 +21,10 @@ def AnswerOfQ_O(text, rate = 0):
 	elif text == "в":
 		tts.ospeak("да иди ты в жопу!")
 	elif ratio(text, "Перезапусти"):
-		os.system("start start.bat\nexit")
+		if os.path.exists(getcwd()+"start.bat"):
+			os.system("start start.bat\nexit")
+		elif os.path.exists(getcwd()+"Q_O.exe"):
+			os.startfile("Q_O.exe")
 		sys.exit()
 	elif text == "включай асинхронный режим" or text == "включи асинхронный режим":
 		tts.async_mode = True
@@ -283,4 +287,5 @@ def AnswerOfQ_O(text, rate = 0):
 		tts.ospeak("Так это не трос, а нитка")
 	elif "экран" in text:
 		tts.ospeak("Ыыыкран)))")
+
 	return None

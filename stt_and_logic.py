@@ -10,6 +10,7 @@ try:
 	import mouse, keyboard, sounddevice as sd
 	import os
 	import json
+	import time
 	import datetime
 	import webbrowser
 	import sys
@@ -122,7 +123,7 @@ def command(text):
 		elif "список" in text:
 			New_text = ""
 			for i in music_list:
-			    New_text = New_text + " " + music_list[i]["name"]
+			    New_text = New_text + " " + music_list[i]["name"] + ";\n"
 			tts.ospeak(New_text)
 		elif "стоп" in text or ratio(text, "выключить"):
 			for i in music_list:
@@ -130,6 +131,7 @@ def command(text):
 					music_list[i]["music"].stop()
 					music_list[i]["value"] = False
 		elif "громкость" in text:
+			#Громкость и только цифра
 			text = convertToNum(text)
 			for i in music_list:
 				try:music_list[i]["music"].set_volume(text / 100); Music_volume = text

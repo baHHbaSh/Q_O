@@ -3,6 +3,8 @@ import datetime, time
 from threading import Thread
 import traceback
 def дозапись(x: str, path_to_file):
+	Thread(target=__Append, args=(x, path_to_file)).run
+def __Append(x:str, path_to_file):
 	try:
 		with open(path_to_file, "r", encoding="utf-8") as file:
 			q = file.read()
