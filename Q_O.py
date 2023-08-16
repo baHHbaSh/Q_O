@@ -1,7 +1,7 @@
-from stt_and_logic import run_loop
+from stt_and_logic import*
 import traceback
 try:
-	while 1:
+	while Q_O_Work:
 		run_loop()
 		input()
 except:

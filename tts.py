@@ -3,7 +3,8 @@ import datetime, time
 from threading import Thread
 import traceback
 def дозапись(x: str, path_to_file):
-	Thread(target=__Append, args=(x, path_to_file)).run
+	pass
+	#Thread(target=__Append, args=(x, path_to_file)).run Не думаю что стоит это возвращать в код
 def __Append(x:str, path_to_file):
 	try:
 		with open(path_to_file, "r", encoding="utf-8") as file:
@@ -38,3 +39,4 @@ class tts:
 		ttss.save_to_file(text, "data.mp3")
 		ttss.runAndWait()
 		ttss.stop()
+		self.ospeak("Выполнено")
